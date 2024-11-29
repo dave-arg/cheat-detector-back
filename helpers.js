@@ -72,7 +72,7 @@ function checkEvidence(evidence, BPEHistory, HREHistory) {
     //llega una evidencia HR , ya tenemos
     //alguna evidencia BP registrada , necesitamos que haya
     //almenos 2 evidencias BP para seguir considerando el caso
-  } else if (BPEHistory.length < 2) {
+  } else if (BPEHistory.length < 3) {
     return false;
     //caso intermedio tibio
     //ya tenemos almenos 2 evidencias BP
@@ -92,7 +92,7 @@ function checkEvidence(evidence, BPEHistory, HREHistory) {
     //ademas de tener 2 evidencias BP registradas
     //si aun no tenemos 3 evidencias HR guardadas
     //chequeamos temporalidad con respecto a la ultima evidencia HR y seguimos en camino
-  } else if (HREHistory.length < 2) {
+  } else if (HREHistory.length < 3) {
     lastHRE = HREHistory[HREHistory.length - 1];
     if (isConsecutive(lastHRE.timestamp, evidence.timestamp)) {
       HREHistory.push(evidence);
